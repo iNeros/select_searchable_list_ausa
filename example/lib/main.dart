@@ -41,7 +41,7 @@ class _SelectSearchableListExampleState
     8: 'Moccasins'
   };
 
-  final List<int> _selectedCategory = [1];
+  final List<int> _selectedCategoryValue = [1];
 
   final Map<int, String> _listColors = {
     1: 'Black',
@@ -56,7 +56,7 @@ class _SelectSearchableListExampleState
     10: 'Red'
   };
 
-  final List<int> _selectedColors = [2, 4];
+  final List<int> _selectedColorValues = [2, 4];
 
   /// This is register text field controllers.
   final TextEditingController _productNameTextEditingController =
@@ -92,7 +92,7 @@ class _SelectSearchableListExampleState
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(
-            height: 30.0,
+            height: 34.0,
           ),
           const Text(
             'Product Details',
@@ -102,8 +102,10 @@ class _SelectSearchableListExampleState
             ),
           ),
           const SizedBox(
-            height: 15.0,
+            height: 13.0,
           ),
+
+          /// Product name field
           TextFormField(
             controller: _productNameTextEditingController,
             decoration: const InputDecoration(
@@ -112,7 +114,7 @@ class _SelectSearchableListExampleState
             ),
           ),
           const SizedBox(
-            height: 15.0,
+            height: 13.0,
           ),
 
           // ####### Category Select List
@@ -121,27 +123,35 @@ class _SelectSearchableListExampleState
             title: 'Category',
             hint: 'Select Category',
             options: _listCategories,
-            selectedOptions: _selectedCategory,
+            selectedOptions: _selectedCategoryValue,
             onChanged: (selectedIds) {
               // setState(() => selectedIds);
               // print(selectedIds);
             },
+            // style: const TextStyle(
+            //   fontSize: 16.0,
+            //   color: Colors.red,
+            // ),
           ),
-
+          const SizedBox(
+            height: 13.0,
+          ),
           // ####### Colors Select List
           DropDownTextField(
             textEditingController: _colorsTextEditingController,
             title: 'Colors',
             hint: 'Select Colors',
             options: _listColors,
-            selectedOptions: _selectedColors,
+            selectedOptions: _selectedColorValues,
             onChanged: (selectedIds) {
               // setState(() => selectedIds);
               // print(selectedIds);
             },
             multiple: true,
           ),
-
+          const SizedBox(
+            height: 13.0,
+          ),
           _UpdateButton(),
         ],
       ),
@@ -149,7 +159,7 @@ class _SelectSearchableListExampleState
   }
 }
 
-/// This is common class for 'REGISTER' elevated button.
+/// This is common class for 'Update' elevated button.
 class _UpdateButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
