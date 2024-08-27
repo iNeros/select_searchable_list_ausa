@@ -38,7 +38,7 @@ class _AppTextFieldState extends State<AppTextField> {
           fillColor: Colors.black12,
           contentPadding:
               const EdgeInsets.only(left: 0, bottom: 0, top: 0, right: 15),
-          hintText: 'Search',
+          hintText: 'Buscar',
           border: const OutlineInputBorder(
             borderSide: BorderSide(
               width: 0,
